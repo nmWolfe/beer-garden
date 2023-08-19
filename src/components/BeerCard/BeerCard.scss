@@ -1,0 +1,8 @@
+@use "../../assets/styles/variables" as *;
+
+.beer-card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+}

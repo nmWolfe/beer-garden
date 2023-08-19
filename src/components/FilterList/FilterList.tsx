@@ -3,10 +3,10 @@ import "./FilterList.scss";
 const FilterList = () => {
   return (
     <div className="filter-list">
-      <ul>
-        <li>Filter me</li>
-        <li>Filter me</li>
-        <li>Filter me</li>
+      <ul className="filter-list__list">
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <input type="checkbox" />
       </ul>
     </div>
   );

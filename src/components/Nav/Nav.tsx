@@ -6,7 +6,9 @@ const Nav = () => {
   return (
     <div className="nav">
       <SearchBox />
-      <FilterList />
+      <div className="nav__list">
+        <FilterList />
+      </div>
     </div>
   );
 };

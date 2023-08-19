@@ -8,7 +8,7 @@ const SearchBox = () => {
         type="text"
         id="beer-search"
         className="search-box__input"
-        value="Search..."
+        placeholder="Find your next beer..."
       />
     </div>
   );

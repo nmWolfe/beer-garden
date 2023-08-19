@@ -1,3 +1,6 @@
+@use "../src/assets/styles/variables" as *;
+
 .app {
   display: flex;
+  font-family: $secondary-font;
 }

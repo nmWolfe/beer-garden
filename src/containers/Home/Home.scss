@@ -1,0 +1,8 @@
+@use "../../assets/styles/variables" as *;
+
+.home {
+  border: 3px solid $primary-color;
+  border-radius: 0 10px 10px 0;
+  width: 100%;
+  background-color: $secondary-accent-color;
+}

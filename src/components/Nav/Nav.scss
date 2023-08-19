@@ -1,0 +1,17 @@
+@use "../../assets/styles/variables" as *;
+
+.nav {
+  height: 100vh;
+  width: 40vw;
+  padding: 20px;
+  text-align: center;
+  background-color: $tertiary-color;
+  border: 3px solid $primary-color;
+  border-radius: 10px 0 0 10px;
+  &__list {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

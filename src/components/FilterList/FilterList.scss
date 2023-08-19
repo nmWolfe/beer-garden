@@ -1,0 +1,8 @@
+.filter-list {
+  padding: 5px;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+  }
+}
