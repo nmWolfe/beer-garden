@@ -8,8 +8,8 @@
     padding: 5px;
     background-color: $secondary-accent-color;
     border-color: $primary-color;
-    color: $primary-color;
-    font-weight: bold;
+    color: $primary-font-color;
+    font-family: $accent-font;
     &:focus,
     &:active {
       outline: $primary-color;

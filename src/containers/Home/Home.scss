@@ -5,4 +5,10 @@
   border-radius: 0 10px 10px 0;
   width: 100%;
   background-color: $secondary-accent-color;
+  padding: 20px;
+  &__header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: $accent-font;
+  }
 }
