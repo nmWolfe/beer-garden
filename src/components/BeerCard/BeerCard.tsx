@@ -2,18 +2,29 @@ import "./BeerCard.scss";
 
 type BeerCardProps = {
   name: string;
+  image: string;
   tagline: string;
   description: string;
   abv: number;
   ibu: number;
 };
 
-const BeerCard = ({ name, tagline, description, abv, ibu }: BeerCardProps) => {
+const BeerCard = ({
+  name,
+  image,
+  tagline,
+  description,
+  abv,
+  ibu,
+}: BeerCardProps) => {
+  if (description.length > 10) {
+    description = description.substring(0, description.indexOf("."));
+  }
   return (
     <div className="beer-card">
       <div className="beer-card__header">
-        <img src="#" alt="beer image" className="beer-card__image" />
         <h1 className="beer-card__name">{name}</h1>
+        <img src={image} alt={name} className="beer-card__image" />
         <h3 className="beer-card__tagline">{tagline}</h3>
       </div>
       <div className="beer-card__content">

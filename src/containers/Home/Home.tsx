@@ -1,12 +1,17 @@
-import BeerCard from "../../components/BeerCard/BeerCard";
+import BeerList from "../../components/BeerList/BeerList";
+import { Beer } from "../../types/Beer";
 import "./Home.scss";
 
-const Home = () => {
+type HomeProps = {
+  beer_list: Beer[];
+};
+
+const Home = ({ beer_list }: HomeProps) => {
   return (
     <div className="home">
       <h1 className="home__header">The Beer Garden</h1>
       <div className="home__content">
-        <BeerCard />
+        <BeerList beer_list={beer_list} />
       </div>
     </div>
   );
