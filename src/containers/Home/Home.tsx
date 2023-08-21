@@ -9,7 +9,7 @@ type HomeProps = {
 const Home = ({ beer_list }: HomeProps) => {
   return (
     <div className="home">
-      <h1 className="home__header">The Beer Garden</h1>
+      <h1 className="home__header">THE PUNK GARDEN</h1>
       <div className="home__content">
         <BeerList beer_list={beer_list} />
       </div>
