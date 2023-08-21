@@ -5,7 +5,9 @@ const Home = () => {
   return (
     <div className="home">
       <h1 className="home__header">The Beer Garden</h1>
-      <BeerCard />
+      <div className="home__content">
+        <BeerCard />
+      </div>
     </div>
   );
 };

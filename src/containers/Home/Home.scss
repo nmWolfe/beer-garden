@@ -11,4 +11,7 @@
     margin-bottom: 20px;
     font-family: $accent-font;
   }
+  &__content {
+    display: grid;
+  }
 }
