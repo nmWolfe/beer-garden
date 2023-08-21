@@ -1,0 +1,12 @@
+@use "../../assets/styles/variables" as *;
+
+.sort-list {
+  padding: 20px;
+  width: 100%;
+  &__dropdown {
+    padding: 2px;
+    width: 60px;
+    font-family: $secondary-font;
+    margin-left: 10px;
+  }
+}

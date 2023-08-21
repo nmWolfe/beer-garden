@@ -4,6 +4,7 @@
   padding: 5px;
   &__list {
     display: flex;
+    flex-direction: column;
     color: $primary-font-color;
   }
   &__label {

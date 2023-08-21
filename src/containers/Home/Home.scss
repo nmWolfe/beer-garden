@@ -12,7 +12,9 @@
     font-family: $accent-font;
   }
   &__content {
+    margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    align-self: center;
   }
 }

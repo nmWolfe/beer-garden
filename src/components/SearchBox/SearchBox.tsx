@@ -13,7 +13,7 @@ const SearchBox = ({ setSearchText }: SearchBoxProps) => {
         type="text"
         id="beer-search"
         className="search-box__input"
-        placeholder="Find your next beer..."
+        placeholder="Find a beer..."
         onChange={setSearchText}
       />
     </div>
