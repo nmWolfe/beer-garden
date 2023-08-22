@@ -23,7 +23,6 @@ const BeerCard = ({
   if (description.length > 10) {
     description = description.substring(0, description.indexOf("."));
   }
-
   const img = image ?? beerImg;
   return (
     <div className="beer-card">

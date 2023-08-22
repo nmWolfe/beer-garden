@@ -14,10 +14,17 @@ function App() {
   });
   const getBeers = async () => {
     try {
-      const url = `https://api.punkapi.com/v2/beers?page=${page}&per_page=${beerDisplayAmount}`;
-      const response = await fetch(url);
-      const data: Beer[] = await response.json();
-      setBeers(data);
+      if (filter.searchText.length >= 1) {
+        const url = `https://api.punkapi.com/v2/beers?page=${page}&per_page=${beerDisplayAmount}&beer_name=${filter.searchText}`;
+        const response = await fetch(url);
+        const data: Beer[] = await response.json();
+        setBeers(data);
+      } else {
+        const url = `https://api.punkapi.com/v2/beers?page=${page}&per_page=${beerDisplayAmount}`;
+        const response = await fetch(url);
+        const data: Beer[] = await response.json();
+        setBeers(data);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -25,7 +32,8 @@ function App() {
   useEffect(() => {
     getBeers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [beerDisplayAmount, page]);
+  }, [beerDisplayAmount, page, filter]);
+
   const handleFilters = (beerArr: Beer[]) => {
     const beerFilters = beerArr.filter((beer) => {
       const searchFilter = beer.name
@@ -37,15 +45,15 @@ function App() {
   };
   const handleSearch = (event: FormEvent<HTMLInputElement>) => {
     const searchText = event.currentTarget.value;
-    setFilter({ ...filter, searchText });
+    setFilter({ searchText });
   };
   const handleDisplayAmount = (event: ChangeEvent<HTMLSelectElement>) => {
     const displayAmount = event.currentTarget.value;
     setBeerDisplayAmount(Number(displayAmount));
   };
   const handlePageIncrement = () => {
-    if (page === 6) {
-      setPage(6);
+    if (beers.length <= 9) {
+      setPage(page);
     } else {
       setPage(page + 1);
     }
