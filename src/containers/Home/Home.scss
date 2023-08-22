@@ -11,6 +11,10 @@
     margin-bottom: 20px;
     font-family: $accent-font;
   }
+  &__drop-down {
+    display: flex;
+    justify-content: space-evenly;
+  }
   &__content {
     margin: auto;
     display: grid;

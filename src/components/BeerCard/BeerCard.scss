@@ -11,11 +11,20 @@
   border-radius: 10px;
   width: 300px;
   height: 500px;
+  position: relative;
   .beer-card__image {
     max-width: 100px;
     max-height: 200px;
     width: auto;
     height: auto;
+    position: relative;
+    left: 80px;
+    opacity: 0.8;
+  }
+  .beer-card__name {
+    position: absolute;
+    bottom: 350px;
+    text-align: left;
   }
   .beer-card__tagline {
     overflow: scroll;

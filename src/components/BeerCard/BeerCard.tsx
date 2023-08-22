@@ -7,6 +7,7 @@ type BeerCardProps = {
   description: string;
   abv: number;
   ibu: number;
+  created: string;
 };
 
 const BeerCard = ({
@@ -16,6 +17,7 @@ const BeerCard = ({
   description,
   abv,
   ibu,
+  created,
 }: BeerCardProps) => {
   if (description.length > 10) {
     description = description.substring(0, description.indexOf("."));
@@ -23,11 +25,12 @@ const BeerCard = ({
   return (
     <div className="beer-card">
       <div className="beer-card__header">
-        <h1 className="beer-card__name">{name}</h1>
         <img src={image} alt={name} className="beer-card__image" />
+        <h1 className="beer-card__name">{name}</h1>
         <h3 className="beer-card__tagline">{tagline}</h3>
       </div>
       <div className="beer-card__content">
+        <h5>Created: {created}</h5>
         <p className="beer-card__description">{description}</p>
         <div className="beer-card__content--extended">
           <div className="beer-card__abv">ABV: {abv}</div>

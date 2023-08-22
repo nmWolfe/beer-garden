@@ -18,6 +18,7 @@ const BeerList = ({ beer_list }: BeerListProps) => {
             description={beer.description}
             abv={beer.abv}
             ibu={beer.ibu}
+            created={beer.first_brewed}
           />
         </div>
       ))}

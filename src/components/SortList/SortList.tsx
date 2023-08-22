@@ -1,14 +1,15 @@
-import { FormEventHandler } from "react";
+import { ChangeEventHandler } from "react";
 import "./SortList.scss";
 
 type SortListProps = {
-  handleSort: FormEventHandler<HTMLSelectElement>;
+  handleSort: ChangeEventHandler<HTMLSelectElement>;
+  label: string;
 };
 
-const SortList = ({ handleSort }: SortListProps) => {
+const SortList = ({ handleSort, label }: SortListProps) => {
   return (
     <div className="sort-list">
-      <label htmlFor="sort-list">Sort</label>
+      <label htmlFor="sort-list">{label}</label>
       <select
         name="sort"
         id="sort-list"

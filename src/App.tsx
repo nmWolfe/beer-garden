@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import "./App.scss";
 import Nav from "./components/Nav/Nav";
 import Home from "./containers/Home/Home";
@@ -7,16 +7,15 @@ import { Beer } from "./types/Beer";
 
 function App() {
   const [beers, setBeers] = useState<Beer[]>([]);
+  const [beerDisplayAmount, setBeerDisplayAmount] = useState<number>(20);
   const [filter, setFilter] = useState({
     searchText: "",
-    abvSort: "",
-    ibuSort: "",
   });
-
   const getBeers = async () => {
     try {
-      const response = await fetch("https://api.punkapi.com/v2/beers");
-      const data = await response.json();
+      const url = `https://api.punkapi.com/v2/beers?&per_page=${beerDisplayAmount}`;
+      const response = await fetch(url);
+      const data: Beer[] = await response.json();
       setBeers(data);
     } catch (error) {
       console.error(error);
@@ -24,7 +23,8 @@ function App() {
   };
   useEffect(() => {
     getBeers();
-  });
+  }, [beerDisplayAmount]);
+
   const handleFilters = (beerArr: Beer[]) => {
     const beerFilters = beerArr.filter((beer) => {
       const searchFilter = beer.name
@@ -34,10 +34,13 @@ function App() {
     });
     return beerFilters;
   };
-
   const handleSearch = (event: FormEvent<HTMLInputElement>) => {
     const searchText = event.currentTarget.value;
     setFilter({ ...filter, searchText });
+  };
+  const handleDisplayAmount = (event: ChangeEvent<HTMLSelectElement>) => {
+    const displayAmount = event.currentTarget.value;
+    setBeerDisplayAmount(Number(displayAmount));
   };
 
   return (
@@ -45,7 +48,15 @@ function App() {
       <div className="app">
         <Nav setSearchText={handleSearch} />
         <Routes>
-          <Route path="/" element={<Home beer_list={handleFilters(beers)} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                beer_list={handleFilters(beers)}
+                displayAmount={handleDisplayAmount}
+              />
+            }
+          />
         </Routes>
       </div>
     </HashRouter>

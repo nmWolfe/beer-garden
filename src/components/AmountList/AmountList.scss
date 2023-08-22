@@ -1,11 +1,14 @@
 @use "../../assets/styles/variables" as *;
 
-.sort-list {
+.display-amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
   &__dropdown {
     padding: 2px;
-    width: 80px;
-    font-family: $secondary-font;
+    width: 50px;
+    font-family: $primary-font;
     margin-left: 10px;
     border-radius: 5px;
   }
