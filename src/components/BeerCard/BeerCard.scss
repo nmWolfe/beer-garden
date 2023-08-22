@@ -9,7 +9,7 @@
   box-shadow: 0 0 10px 5px $primary-color, 0 0 20px 7px $secondary-color,
     0 0 25px 10px $tertiary-color, 0 0 30px 15px $accent-color;
   border-radius: 10px;
-  width: 300px;
+  width: 280px;
   height: 500px;
   position: relative;
   .beer-card__image {
@@ -18,16 +18,33 @@
     width: auto;
     height: auto;
     position: relative;
-    left: 80px;
+    left: 85px;
     opacity: 0.8;
   }
   .beer-card__name {
     position: absolute;
-    bottom: 350px;
+    top: 10px;
     text-align: left;
+    width: 180px;
+    border-radius: 10px;
+    height: 200px;
+    overflow: scroll;
   }
   .beer-card__tagline {
+    height: 50px;
     overflow: scroll;
+    border-bottom: 1px solid $primary-color;
+  }
+  .beer-card__created {
+    margin-bottom: 2px;
+    border-bottom: 1px solid $primary-color;
+    font-size: 1.1rem;
+    text-align: right;
+  }
+  .beer-card__description {
+    height: 100px;
+    overflow: scroll;
+    border-bottom: 1px solid $primary-color;
   }
   .beer-card__content {
     padding: 5px;
@@ -40,7 +57,7 @@
   .beer-card__ibu {
     border: 2px solid $primary-color;
     border-radius: 20% 10%;
-    width: 80px;
+    width: 90px;
     padding: 5px;
     margin: 5px;
   }

@@ -22,6 +22,8 @@ const SortList = ({ handleSort, label }: SortListProps) => {
         <option className="sort-list__option" value="name">
           Name A-Z
         </option>
+        <option value="new">New - Old</option>
+        <option value="old">Old - New</option>
         <option className="sort-list__option" value="high-abv">
           ABV High - Low
         </option>

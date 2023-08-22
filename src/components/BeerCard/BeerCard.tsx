@@ -30,8 +30,8 @@ const BeerCard = ({
         <h3 className="beer-card__tagline">{tagline}</h3>
       </div>
       <div className="beer-card__content">
-        <h5>Created: {created}</h5>
         <p className="beer-card__description">{description}</p>
+        <h5 className="beer-card__created">Created: {created}</h5>
         <div className="beer-card__content--extended">
           <div className="beer-card__abv">ABV: {abv}</div>
           <div className="beer-card__ibu">IBU: {ibu}</div>

@@ -1,0 +1,19 @@
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+  &-arrow {
+    border: none;
+    background: none;
+    border-radius: 5px;
+  }
+  &-arrow__left,
+  &-arrow__right {
+    height: 50px;
+    &:active {
+      scale: 0.9;
+    }
+  }
+}

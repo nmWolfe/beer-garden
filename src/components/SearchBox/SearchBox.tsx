@@ -8,7 +8,9 @@ type SearchBoxProps = {
 const SearchBox = ({ setSearchText }: SearchBoxProps) => {
   return (
     <div className="search-box">
-      <label htmlFor="beer-search"></label>
+      <label htmlFor="beer-search" className="search-box__label">
+        Search
+      </label>
       <input
         type="text"
         id="beer-search"
