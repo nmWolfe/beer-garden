@@ -7,7 +7,7 @@ import { Beer } from "./types/Beer";
 
 function App() {
   const [beers, setBeers] = useState<Beer[]>([]);
-  const [beerDisplayAmount, setBeerDisplayAmount] = useState<number>(20);
+  const [beerDisplayAmount, setBeerDisplayAmount] = useState<number>(10);
   const [page, setPage] = useState<number>(1);
   const [filter, setFilter] = useState({
     searchText: "",

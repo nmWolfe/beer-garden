@@ -15,6 +15,7 @@ const AmountList = ({ handleDisplayAmount }: AmountListProps) => {
         className="display-amount__dropdown"
         onChange={handleDisplayAmount}
       >
+        <option value="10">10</option>
         <option value="20">20</option>
         <option value="40">40</option>
         <option value="60">60</option>

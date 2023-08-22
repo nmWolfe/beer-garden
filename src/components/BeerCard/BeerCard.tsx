@@ -1,4 +1,5 @@
 import "./BeerCard.scss";
+import beerImg from "../../assets/images/beer.svg";
 
 type BeerCardProps = {
   name: string;
@@ -22,10 +23,12 @@ const BeerCard = ({
   if (description.length > 10) {
     description = description.substring(0, description.indexOf("."));
   }
+
+  const img = image ?? beerImg;
   return (
     <div className="beer-card">
       <div className="beer-card__header">
-        <img src={image} alt={name} className="beer-card__image" />
+        <img src={img} alt={name} className="beer-card__image" />
         <h1 className="beer-card__name">{name}</h1>
         <h3 className="beer-card__tagline">{tagline}</h3>
       </div>
