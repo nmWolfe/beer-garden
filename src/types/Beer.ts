@@ -36,6 +36,8 @@ type Malt = {
 type Hops = {
   name: string;
   amount: Volume;
+  add: string;
+  attribute: string;
 };
 
 type Method = {

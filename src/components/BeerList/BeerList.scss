@@ -1,4 +1,14 @@
 .beer-list__container {
-  padding: 10px;
   margin: auto;
+  margin-bottom: 20px;
+}
+.beer-list__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media screen and (min-width: 400px) {
+  .beer-list__container {
+    padding: 20px;
+  }
 }

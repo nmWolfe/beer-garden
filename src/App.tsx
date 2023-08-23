@@ -4,6 +4,7 @@ import "./App.scss";
 import Nav from "./components/Nav/Nav";
 import Home from "./containers/Home/Home";
 import { Beer } from "./types/Beer";
+import BeerInfo from "./containers/BeerInfo/BeerInfo";
 
 function App() {
   const [beers, setBeers] = useState<Beer[]>([]);
@@ -83,6 +84,7 @@ function App() {
               />
             }
           />
+          <Route path="/beer/:beerId" element={<BeerInfo beers={beers} />} />
         </Routes>
       </div>
     </HashRouter>

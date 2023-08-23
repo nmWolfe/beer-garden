@@ -9,7 +9,7 @@ import { Beer } from "../../types/Beer";
 import "./Home.scss";
 import SortList from "../../components/SortList/SortList";
 import AmountList from "../../components/AmountList/AmountList";
-import Buttons from "../../components/Buttons/Buttons";
+import ArrowButton from "../../components/ArrowButton/ArrowButton";
 
 type HomeProps = {
   beer_list: Beer[];
@@ -93,7 +93,7 @@ const Home = ({
         <BeerList beer_list={handleSortDisplay(beer_list)} />
       </div>
       <div className="home__buttons">
-        <Buttons
+        <ArrowButton
           page={page}
           handleDecrement={decrement}
           handleIncrement={increment}

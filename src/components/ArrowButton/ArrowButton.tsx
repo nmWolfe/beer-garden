@@ -1,7 +1,7 @@
 import { MouseEventHandler } from "react";
 import rightArrow from "../../assets/images/right-arrow.svg";
 import leftArrow from "../../assets/images/left-arrow.svg";
-import "./Buttons.scss";
+import "./ArrowButton.scss";
 
 type ButtonsProps = {
   page: number;
