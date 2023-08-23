@@ -12,6 +12,10 @@
   &-arrow__left,
   &-arrow__right {
     height: 50px;
+    transition: scale 0.2s;
+    &:hover {
+      cursor: pointer;
+    }
     &:active {
       scale: 0.9;
     }

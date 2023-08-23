@@ -1,0 +1,22 @@
+@use "../../assets/styles/variables" as *;
+
+.radio-list {
+  padding: 10px;
+  height: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  &__list {
+    color: $primary-font-color;
+    list-style: none;
+    padding: 10px;
+  }
+  &__label {
+    margin-left: 2px;
+  }
+  &__input {
+    padding: 5px;
+    border-bottom: $border-bottom;
+    display: flex;
+  }
+}

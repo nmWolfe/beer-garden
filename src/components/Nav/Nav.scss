@@ -9,9 +9,6 @@
   border: 3px solid $primary-color;
   border-radius: 10px 0 0 10px;
   &__list {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 50%;
   }
 }

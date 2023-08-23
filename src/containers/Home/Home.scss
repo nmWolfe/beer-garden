@@ -27,7 +27,7 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 850px) {
   .home__drop-down {
     flex-direction: row;
     justify-content: space-evenly;
@@ -37,19 +37,19 @@
   }
 }
 
-@media screen and (min-width: 1140px) {
+@media screen and (min-width: 1250px) {
   .home__content {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media screen and (min-width: 1640px) {
+@media screen and (min-width: 1750px) {
   .home__content {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media screen and (min-width: 2640px) {
+@media screen and (min-width: 2250px) {
   .home__content {
     grid-template-columns: repeat(5, 1fr);
   }

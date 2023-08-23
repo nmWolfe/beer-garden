@@ -12,6 +12,7 @@ function App() {
   const [page, setPage] = useState<number>(1);
   const [filter, setFilter] = useState({
     searchText: "",
+    radioSelect: "all",
   });
   const getBeers = async () => {
     try {
@@ -34,13 +35,9 @@ function App() {
     getBeers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [beerDisplayAmount, page, filter]);
-
   const handleFilters = (beerArr: Beer[]) => {
     const beerFilters = beerArr.filter((beer) => {
-      const searchFilter = beer.name
-        .toLowerCase()
-        .includes(filter.searchText.toLowerCase());
-      return searchFilter;
+      return beer.name.toLowerCase().includes(filter.searchText.toLowerCase());
     });
     return beerFilters;
   };
@@ -66,11 +63,27 @@ function App() {
       setPage(page - 1);
     }
   };
+  const handleRadioFilter = (event: ChangeEvent<HTMLInputElement>) => {
+    const userSelection = event.currentTarget.value;
+    setFilter({ ...filter, radioSelect: userSelection });
+  };
+  const radioOptions = [
+    "All",
+    "ABV over 30",
+    "IBU over 50",
+    "EBC over 20",
+    "Brewed Before 2010",
+  ];
 
   return (
     <HashRouter>
       <div className="app">
-        <Nav setSearchText={handleSearch} />
+        <Nav
+          setSearchText={handleSearch}
+          options={radioOptions}
+          handleChange={handleRadioFilter}
+          selected={filter.radioSelect}
+        />
         <Routes>
           <Route
             path="/"
