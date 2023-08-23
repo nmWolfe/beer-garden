@@ -1,0 +1,23 @@
+@use "../../assets/styles/variables" as *;
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  background-color: $secondary-accent-color;
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+  &__404 {
+    font-size: 5rem;
+  }
+  &__paragraph {
+    padding: 20px;
+  }
+  &__link {
+    color: inherit;
+    transition: scale 1s;
+    &:hover {
+      scale: 1.1;
+    }
+  }
+}

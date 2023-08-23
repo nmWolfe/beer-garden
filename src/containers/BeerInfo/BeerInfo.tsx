@@ -3,6 +3,7 @@ import { Beer } from "../../types/Beer";
 import { Link } from "react-router-dom";
 import "./BeerInfo.scss";
 import beerImage from "../../assets/images/beer.svg";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 type BeerInfoProps = {
   beers: Beer[];
@@ -13,7 +14,7 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
 
   const beer = beers.find((beer) => beer.id === Number(beerId));
   if (!beer) {
-    return <p>We do not have this beer in the Punk Garden.</p>;
+    return <ErrorPage />;
   }
 
   const defaultBeer = beer.image_url ?? beerImage;
