@@ -5,6 +5,7 @@ import Nav from "./components/Nav/Nav";
 import Home from "./containers/Home/Home";
 import { Beer } from "./types/Beer";
 import BeerInfo from "./containers/BeerInfo/BeerInfo";
+import { RadioInput } from "./types/Radio";
 
 function App() {
   const [beers, setBeers] = useState<Beer[]>([]);
@@ -21,6 +22,11 @@ function App() {
         const response = await fetch(url);
         const data: Beer[] = await response.json();
         setBeers(data);
+      } else if (filter.radioSelect !== "all") {
+        const url = `https://api.punkapi.com/v2/beers?page=${page}&per_page=${beerDisplayAmount}&${filter.radioSelect}`;
+        const response = await fetch(url);
+        const data: Beer[] = await response.json();
+        setBeers(data);
       } else {
         const url = `https://api.punkapi.com/v2/beers?page=${page}&per_page=${beerDisplayAmount}`;
         const response = await fetch(url);
@@ -28,7 +34,7 @@ function App() {
         setBeers(data);
       }
     } catch (error) {
-      console.error(error);
+      console.log("There was an error" + error);
     }
   };
   useEffect(() => {
@@ -43,7 +49,7 @@ function App() {
   };
   const handleSearch = (event: FormEvent<HTMLInputElement>) => {
     const searchText = event.currentTarget.value;
-    setFilter({ searchText });
+    setFilter({ ...filter, searchText });
   };
   const handleDisplayAmount = (event: ChangeEvent<HTMLSelectElement>) => {
     const displayAmount = event.currentTarget.value;
@@ -65,24 +71,35 @@ function App() {
   };
   const handleRadioFilter = (event: ChangeEvent<HTMLInputElement>) => {
     const userSelection = event.currentTarget.value;
-    setFilter({ ...filter, radioSelect: userSelection });
+    for (const key in radioOptions) {
+      if (userSelection === key) {
+        setFilter({
+          ...filter,
+          radioSelect: radioOptions[key as keyof RadioInput],
+        });
+      }
+    }
   };
-  const radioOptions = [
-    "All",
-    "ABV over 30",
-    "IBU over 50",
-    "EBC over 20",
-    "Brewed Before 2010",
-  ];
+  const radioOptions: RadioInput = {
+    all: "all",
+    "abv over 10": "abv_gt=10",
+    "ibu over 50": "ibu_gt=50",
+    "ebc over 20": "ebc_gt=20",
+    "created before 2010": "brewed_before=12-2010",
+    "created after 2010": "brewed_after=1-2010",
+  };
+  const selectedValue = Object.keys(radioOptions).find(
+    (key) => radioOptions[key as keyof RadioInput] === filter.radioSelect
+  );
 
   return (
     <HashRouter>
       <div className="app">
         <Nav
           setSearchText={handleSearch}
-          options={radioOptions}
+          options={Object.keys(radioOptions)}
           handleChange={handleRadioFilter}
-          selected={filter.radioSelect}
+          selected={selectedValue!}
         />
         <Routes>
           <Route

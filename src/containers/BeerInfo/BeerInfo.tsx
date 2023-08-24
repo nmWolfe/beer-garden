@@ -3,7 +3,7 @@ import { Beer } from "../../types/Beer";
 import { Link } from "react-router-dom";
 import "./BeerInfo.scss";
 import beerImage from "../../assets/images/beer.svg";
-import ErrorPage from "../ErrorPage/ErrorPage";
+import ErrorPage from "../../components/ErrorPage/ErrorPage";
 
 type BeerInfoProps = {
   beers: Beer[];
@@ -40,8 +40,8 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
           Recommended Food Pairings
         </h2>
         <div className="beer-info__food-pairing--food">
-          {beer.food_pairing.map((pairing) => {
-            return <p>~ {pairing} ~</p>;
+          {beer.food_pairing.map((pairing, index) => {
+            return <p key={"pairing" + beer.id + index}>~ {pairing} ~</p>;
           })}
         </div>
       </div>
@@ -56,9 +56,9 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
       <div className="beer-info__ingredients">
         <div className="beer-info__ingredients--malt">
           <h3 className="beer-info__ingredients--header">Malt</h3>
-          {beer.ingredients.malt.map((malt) => {
+          {beer.ingredients.malt.map((malt, index) => {
             return (
-              <ul className="malt">
+              <ul className="malt" key={`malt ${beer.id}` + index}>
                 <li>Name: {malt.name}</li>
                 <li>
                   Amnt: {malt.amount.value} {malt.amount.unit}
@@ -70,9 +70,9 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
         </div>
         <div className="beer-info__ingredients--hops">
           <h3 className="beer-info__ingredients--header">Hops</h3>
-          {beer.ingredients.hops.map((hop) => {
+          {beer.ingredients.hops.map((hop, index) => {
             return (
-              <ul className="hops">
+              <ul className="hops" key={`${hop} + ${beer.id}` + index}>
                 <li>Name: {hop.name}</li>
                 <li>
                   Amnt: {hop.amount.value} {hop.amount.unit}
