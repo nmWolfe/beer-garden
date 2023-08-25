@@ -145,4 +145,4 @@ Add the testing script also:
     "test": "vitest"
 ```
 
-Now you can create your own tests, or run `npm run test` to check the tests out.
+Now you can create your own tests, or run `npm run test` to check the tests already created in the repo out.
