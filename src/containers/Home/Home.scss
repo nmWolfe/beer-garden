@@ -3,7 +3,7 @@
 .home {
   border: 3px solid $primary-color;
   border-radius: 0 10px 10px 0;
-  width: 75vw;
+  width: 100%;
   max-height: 100vh;
   background-color: $secondary-accent-color;
   overflow: scroll;
@@ -43,7 +43,7 @@
   }
 }
 
-@media screen and (min-width: 1750px) {
+@media screen and (min-width: 1550px) {
   .home__content {
     grid-template-columns: repeat(4, 1fr);
   }
